@@ -10,5 +10,5 @@ namespace LinqQuery
     {
         public Guid SpeciesId { get; set; }
         public string Name { get; set; }
-    }
+    }   
 }

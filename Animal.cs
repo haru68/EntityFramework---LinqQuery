@@ -10,7 +10,6 @@ namespace LinqQuery
     {
         public Guid AnimalId { get; set; }
         public string Name { get; set; }
-        public Guid SpeciesId { get; set; }
         public Species Species { get; set; }
         public int RemainingNumber { get; set; }
     }

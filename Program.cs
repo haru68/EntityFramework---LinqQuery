@@ -61,29 +61,30 @@ namespace LinqQuery
                 context.Add(albinosTortoise);
                 context.SaveChanges();
 
-                var whiteCougarId = from spec in context.Species
-                                    where spec.Name == "White cougar"
-                                    select spec.SpeciesId;
+                var whiteCougarEntity = from spec in context.Species
+                                        where spec.Name == "Cougar"
+                                        select spec;
 
                 var remainingWhiteCougar = from animal in context.Animals
-                                           where animal.Species == whiteCougarId
+                                           where animal.Species == whiteCougarEntity.First()
                                            select animal.RemainingNumber;
 
-
-                var whiteTigerId = from spec in context.Species
-                                   where spec.Name == "White tiger"
-                                   select spec.SpeciesId;
+                
+                var whiteTigerEntity = from spec in context.Species
+                                       where spec.Name == "Tiger"
+                                       select spec;
 
                 var remainingWhiteTiger = from animal in context.Animals
-                                          where animal.Species == whiteTigerId
+                                          where animal.Species == whiteTigerEntity.First()
                                           select animal.RemainingNumber;
-
+                                          
+                
                 var albinosTortoiseId = from spec in context.Species
-                                        where spec.Name == "Albinos tortoise"
-                                        select spec.SpeciesId;
+                                        where spec.Name == "Tortoise"
+                                        select spec;
 
                 var remainingAlbinosTurtules = from animal in context.Animals
-                                               where animal.Species == albinosTortoiseId
+                                               where animal.Species == albinosTortoiseId.First()
                                                select animal.RemainingNumber;
 
                 /*var tigerTest = from animal in context.Animals
@@ -91,7 +92,7 @@ namespace LinqQuery
                                 where spec.Name == "White tiger"
                                 select animal.RemainingNumber;*/
 
-                string boxMessage = "White cougars: " + remainingWhiteCougar.First() + 
+                string boxMessage = "White cougars: " + remainingWhiteCougar.First() +
                                     "\n White tigers: " + remainingWhiteTiger.First() + 
                                     "\n Albinos turtules: " + remainingAlbinosTurtules.First();
 
